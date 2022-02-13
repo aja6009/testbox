@@ -1,7 +1,6 @@
 pipeline {
     agent any
     parameters {
-       
         choice(name: 'VERSION', choice: ['1.1.0', '1.2.0', '1.3.0'], descriptipn: '') 
         booleanParam(name: 'executeTest', defaultVault: true, description: '')
     }
