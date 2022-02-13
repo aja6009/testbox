@@ -9,7 +9,7 @@ def testAPP() {
 
 def deployAPP() {
     echo 'build the project'
-    sh "deploy version ${params.VERSION}"
+    echo "deploy version ${params.VERSION}"
 }
 
 return this
