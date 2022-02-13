@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         choice(name: 'VERSION', choice: ['1.1.0', '1.2.0', '1.3.0'], descriptipn: '') 
-        booleanParam(name: 'executeTest', defaultVault: true, description: '')
+        booleanParam(name: 'executeTests', defaultVault: true, description: '')
     }
     
     stages {
@@ -14,7 +14,7 @@ pipeline {
         stage ('Test') {
             when {
                 expression {
-                    param.executeTest
+                    params.executeTests
                 }
             }
             step {
@@ -24,7 +24,7 @@ pipeline {
         stage ('Deploy') {
             step {
                 echo 'IT will deploy'
-                echo "deploy version ${peram.VERSION}"
+                echo "deploy version ${perams.VERSION}"
             }
         }
     }
